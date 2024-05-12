@@ -4,18 +4,84 @@
 }
 
 .aside {
-  width: 145px;
-  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  min-width: 145px;
+  transition: min-width 0.2s ease;
   overflow: hidden;
-  background-color: #f4f4f4;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  &__toggle {
+    display: flex;
+    padding: 0 55px;
+  }
+
+  &__nav {
+    padding: 0 55px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__item {
+      padding: 18px 30px;
+
+      display: flex;
+      align-items: center;
+      gap: 29px;
+
+      cursor: pointer;
+
+      svg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 30px;
+        height: 30px;
+      }
+
+      span {
+        font-size: 20px;
+        color: #8f92b5;
+      }
+
+      &__active {
+        border-radius: 20px;
+        background-color: #f5f5f7;
+
+        span {
+          color: #151422;
+        }
+      }
+    }
+  }
 }
 
 .aside.open {
-  width: 400px;
+  min-width: 400px;
 }
 
 .content {
   flex-grow: 1;
   background-color: #fff;
   padding: 20px;
+}
+
+.isAlignCenter {
+  align-items: center;
+}
+
+.isJustifyCenter {
+  justify-content: center;
 }

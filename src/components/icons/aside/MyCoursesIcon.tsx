@@ -19,7 +19,7 @@ export const MyCoursesIcon = ({ color = "#8F92B5" }: Props) => {
         d="M6 11.8462C6 11.8462 9 16 9.6 16C10.2 16 18 7 18 7"
         stroke={color}
         strokeWidth="2.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   );

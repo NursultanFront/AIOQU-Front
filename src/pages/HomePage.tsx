@@ -1,8 +1,16 @@
 import LayoutMain from "@/layout/LayoutMain";
+import { useCallback, useState } from "react";
+import { View } from "@/interface/view";
 
 const HomePage = () => {
+  const [activeView, setActivePage] = useState<View>(View.Overview);
+
+  const changeView = useCallback((view: View) => {
+    setActivePage(view);
+  }, []);
+
   return (
-    <LayoutMain>
+    <LayoutMain activeView={activeView} changeView={changeView}>
       <>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quae,
         provident ratione, officia temporibus placeat ab reiciendis repudiandae
