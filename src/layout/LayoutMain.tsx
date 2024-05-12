@@ -2,8 +2,8 @@ import { ReactNode, useState } from "react";
 
 import classNames from "classnames";
 
-import { OverviewIcon } from "../components/icons/OverviewIcon";
 import styles from "./LayoutMain.module.scss";
+import { OverviewIcon } from "@/components/icons/aside/OverviewIcon";
 
 type Props = {
   children: ReactNode;
