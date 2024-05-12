@@ -23,7 +23,11 @@
 
   &__toggle {
     display: flex;
-    padding: 0 55px;
+    padding: 0 86px;
+
+    &__active {
+      padding: 0;
+    }
   }
 
   &__nav {

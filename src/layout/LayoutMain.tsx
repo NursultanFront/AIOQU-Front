@@ -41,6 +41,7 @@ const LayoutMain = ({ children, activeView, changeView }: Props) => {
           <div
             className={cn(styles.aside__toggle, {
               [styles.isJustifyCenter]: !isAsideOpen,
+              [styles.aside__toggle__active]: !isAsideOpen,
             })}
           >
             <button onClick={toggleAside}>
@@ -65,7 +66,9 @@ const LayoutMain = ({ children, activeView, changeView }: Props) => {
                 })}
                 onClick={() => changeView(View.Overview)}
               >
-                <OverviewIcon color="#151422" />
+                <OverviewIcon
+                  color={activeView === View.Overview ? "#151422" : "#8F92B5"}
+                />
                 {isAsideOpen && <span>{View.Overview}</span>}
               </li>
               <li
@@ -75,7 +78,9 @@ const LayoutMain = ({ children, activeView, changeView }: Props) => {
                 })}
                 onClick={() => changeView(View.MyCourses)}
               >
-                <MyCoursesIcon color="#151422" />
+                <MyCoursesIcon
+                  color={activeView === View.MyCourses ? "#151422" : "#8F92B5"}
+                />
                 {isAsideOpen && <span>{View.MyCourses}</span>}
               </li>
               <li
@@ -85,7 +90,9 @@ const LayoutMain = ({ children, activeView, changeView }: Props) => {
                 })}
                 onClick={() => changeView(View.Courses)}
               >
-                <CoursesIcon color="#151422" />
+                <CoursesIcon
+                  color={activeView === View.Courses ? "#151422" : "#8F92B5"}
+                />
                 {isAsideOpen && <span>{View.Courses}</span>}
               </li>
               <li
@@ -95,7 +102,9 @@ const LayoutMain = ({ children, activeView, changeView }: Props) => {
                 })}
                 onClick={() => changeView(View.Mentors)}
               >
-                <MentorIcon color="#151422" />
+                <MentorIcon
+                  color={activeView === View.Mentors ? "#151422" : "#8F92B5"}
+                />
                 {isAsideOpen && <span>{View.Mentors}</span>}
               </li>
               <li
@@ -105,7 +114,9 @@ const LayoutMain = ({ children, activeView, changeView }: Props) => {
                 })}
                 onClick={() => changeView(View.Settings)}
               >
-                <SettingIcon color="#151422" />
+                <SettingIcon
+                  color={activeView === View.Settings ? "#151422" : "#8F92B5"}
+                />
                 {isAsideOpen && <span>{View.Settings}</span>}
               </li>
             </ul>
