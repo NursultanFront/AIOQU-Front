@@ -1,0 +1,21 @@
+.layoutMain {
+  display: flex;
+  height: 100vh;
+}
+
+.aside {
+  width: 145px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  background-color: #f4f4f4;
+}
+
+.aside.open {
+  width: 400px;
+}
+
+.content {
+  flex-grow: 1;
+  background-color: #fff;
+  padding: 20px;
+}
