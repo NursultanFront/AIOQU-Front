@@ -1,9 +1,8 @@
-import { ReactNode, useState } from "react";
+import { useEffect, useState } from "react";
 
 import cn from "classnames";
-
-import styles from "./LayoutMain.module.scss";
-import { View } from "@/interface/view";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { RoutePath } from "@/router/routes";
 
 import { OverviewIcon } from "@/components/icons/aside/OverviewIcon";
 import LogoIcon from "@/assets/img/logo.png";
@@ -15,17 +14,31 @@ import CoursesIcon from "@/components/icons/aside/CoursesIcon";
 import { MentorIcon } from "@/components/icons/aside/MentorIcon";
 import { SettingIcon } from "@/components/icons/aside/SettingIcon";
 
-type Props = {
-  children: ReactNode;
-  activeView: View;
-  changeView: (view: View) => void;
-};
+import styles from "./LayoutMain.module.scss";
 
 // #8F92B5
-const LayoutMain = ({ children, activeView, changeView }: Props) => {
+const LayoutMain = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [isAsideOpen, setAsideOpen] = useState(false);
+  const [activeView, setActiveView] = useState<RoutePath>(RoutePath.Overview);
 
   const toggleAside = () => setAsideOpen(!isAsideOpen);
+
+  const changeView = (value: RoutePath) => {
+    setActiveView(value);
+    navigate(value);
+  };
+
+  useEffect(() => {
+    const path = Object.values(RoutePath).find(
+      (path) => path === location.pathname
+    );
+    if (path) {
+      setActiveView(path);
+    }
+  }, [location.pathname]);
 
   return (
     <section className={styles.layoutMain}>
@@ -62,69 +75,81 @@ const LayoutMain = ({ children, activeView, changeView }: Props) => {
               <li
                 className={cn(styles.aside__nav__item, {
                   [styles.aside__nav__item__active]:
-                    activeView === View.Overview,
+                    activeView === RoutePath.Overview,
                 })}
-                onClick={() => changeView(View.Overview)}
+                onClick={() => changeView(RoutePath.Overview)}
               >
                 <OverviewIcon
-                  color={activeView === View.Overview ? "#151422" : "#8F92B5"}
+                  color={
+                    activeView === RoutePath.Overview ? "#151422" : "#8F92B5"
+                  }
                 />
-                {isAsideOpen && <span>{View.Overview}</span>}
+                {isAsideOpen && <span>{RoutePath.Overview}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
                   [styles.aside__nav__item__active]:
-                    activeView === View.MyCourses,
+                    activeView === RoutePath.MyCourses,
                 })}
-                onClick={() => changeView(View.MyCourses)}
+                onClick={() => changeView(RoutePath.MyCourses)}
               >
                 <MyCoursesIcon
-                  color={activeView === View.MyCourses ? "#151422" : "#8F92B5"}
+                  color={
+                    activeView === RoutePath.MyCourses ? "#151422" : "#8F92B5"
+                  }
                 />
-                {isAsideOpen && <span>{View.MyCourses}</span>}
+                {isAsideOpen && <span>{RoutePath.MyCourses}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
                   [styles.aside__nav__item__active]:
-                    activeView === View.Courses,
+                    activeView === RoutePath.Courses,
                 })}
-                onClick={() => changeView(View.Courses)}
+                onClick={() => changeView(RoutePath.Courses)}
               >
                 <CoursesIcon
-                  color={activeView === View.Courses ? "#151422" : "#8F92B5"}
+                  color={
+                    activeView === RoutePath.Courses ? "#151422" : "#8F92B5"
+                  }
                 />
-                {isAsideOpen && <span>{View.Courses}</span>}
+                {isAsideOpen && <span>{RoutePath.Courses}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
                   [styles.aside__nav__item__active]:
-                    activeView === View.Mentors,
+                    activeView === RoutePath.Mentors,
                 })}
-                onClick={() => changeView(View.Mentors)}
+                onClick={() => changeView(RoutePath.Mentors)}
               >
                 <MentorIcon
-                  color={activeView === View.Mentors ? "#151422" : "#8F92B5"}
+                  color={
+                    activeView === RoutePath.Mentors ? "#151422" : "#8F92B5"
+                  }
                 />
-                {isAsideOpen && <span>{View.Mentors}</span>}
+                {isAsideOpen && <span>{RoutePath.Mentors}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
                   [styles.aside__nav__item__active]:
-                    activeView === View.Settings,
+                    activeView === RoutePath.Settings,
                 })}
-                onClick={() => changeView(View.Settings)}
+                onClick={() => changeView(RoutePath.Settings)}
               >
                 <SettingIcon
-                  color={activeView === View.Settings ? "#151422" : "#8F92B5"}
+                  color={
+                    activeView === RoutePath.Settings ? "#151422" : "#8F92B5"
+                  }
                 />
-                {isAsideOpen && <span>{View.Settings}</span>}
+                {isAsideOpen && <span>{RoutePath.Settings}</span>}
               </li>
             </ul>
           </nav>
         </div>
         <div className={styles.aside__bottom}></div>
       </aside>
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content}>
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 };

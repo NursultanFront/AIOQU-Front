@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
