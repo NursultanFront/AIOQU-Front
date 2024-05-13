@@ -1,0 +1,29 @@
+.universal-layout {
+  &__header {
+  }
+
+  &__content {
+  }
+}
+
+.unversal-header {
+  padding: 30px 0 0 20px;
+  display: flex;
+  justify-content: space-between;
+
+  &__left-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__right-block {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.universal-content {
+  background-color: #f5f7fa;
+  // height: -webkit-fill-available;
+}
