@@ -21,7 +21,9 @@ const MentorsView = () => {
           <ProfileBar />
         </div>
       </div>
-      <div className="universal-content"></div>
+      <div style={{ padding: "24px" }} className="universal-content">
+        <div className="universal-content__list"></div>
+      </div>
     </div>
   );
 };

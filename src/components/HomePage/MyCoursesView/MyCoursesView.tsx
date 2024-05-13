@@ -36,7 +36,7 @@ const MyCoursesView = () => {
           <ProfileBar />
         </div>
       </div>
-      <div style={{ flexGrow: 1 }}>
+      <div style={{ flexGrow: 1, overflow: "auto" }}>
         <Box
           sx={{
             display: "flex",
@@ -59,15 +59,35 @@ const MyCoursesView = () => {
             </Box>
             <div className="universal-content" style={{ flexGrow: 1 }}>
               <TabPanel value={CourseTab.Ongoing}>
-                <CardCourse
-                  title="lolka"
-                  img=""
-                  viewPage="My courses"
-                  isFavorite
-                />
+                <div className="universal-content__list">
+                  <CardCourse
+                    title="lolka"
+                    img=""
+                    viewPage="My courses"
+                    isFavorite
+                  />
+                </div>
               </TabPanel>
-              <TabPanel value={CourseTab.Completed}>Item Two</TabPanel>
-              <TabPanel value={CourseTab.Favorite}>Item Three</TabPanel>
+              <TabPanel value={CourseTab.Completed}>
+                <div className="universal-content__list">
+                  <CardCourse
+                    title="lolka"
+                    img=""
+                    viewPage="Complete"
+                    isFavorite
+                  />
+                </div>
+              </TabPanel>
+              <TabPanel value={CourseTab.Favorite}>
+                <div className="universal-content__list">
+                  <CardCourse
+                    title="lolka"
+                    img=""
+                    viewPage="Favorite"
+                    isFavorite
+                  />
+                </div>
+              </TabPanel>
             </div>
           </TabContext>
         </Box>

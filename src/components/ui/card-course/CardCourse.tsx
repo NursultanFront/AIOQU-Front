@@ -16,7 +16,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import styles from "./CardCourse.module.scss";
 import { View } from "@/interface/view";
 
-type ViewPage = "My courses" | "Courses" | "Mentors" | "Favorite";
+type ViewPage = "My courses" | "Courses" | "Mentors" | "Favorite" | "Complete";
 
 type Props = {
   img?: string;
@@ -46,7 +46,7 @@ export const CardCourse = (props: Props) => {
               alt="course"
               height="140"
               image={image}
-              sx={{ width: 200 }}
+              sx={{ width: 200, objectFit: "contain" }}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -67,7 +67,10 @@ export const CardCourse = (props: Props) => {
               )}
             </CardContent>
           </Stack>
-          <LinearProgress variant="determinate" value={50} />
+          <LinearProgress variant="determinate" value={60} />
+          <div className={styles.card__text}>
+            You’ve completed course for 60%
+          </div>
           {viewPage === View.MyCourses && (
             <CardActions
               sx={{
@@ -94,6 +97,26 @@ export const CardCourse = (props: Props) => {
                 }}
               >
                 To the module
+              </Button>
+            </CardActions>
+          )}
+          {viewPage === "Complete" && (
+            <CardActions
+              sx={{
+                p: 0,
+                display: "flex",
+                justifyContent: "space-between",
+                gap: "10px",
+              }}
+            >
+              <Button
+                variant="outlined"
+                size="large"
+                sx={{
+                  width: "100%",
+                }}
+              >
+                To the course
               </Button>
             </CardActions>
           )}

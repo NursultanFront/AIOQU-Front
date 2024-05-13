@@ -2,6 +2,7 @@
   height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
+  gap: 30px;
   &__header {
   }
 
@@ -27,6 +28,15 @@
 }
 
 .universal-content {
+  flex-grow: 1;
+  flex-wrap: wrap;
+  overflow: auto;
   background-color: #f5f7fa;
   // height: -webkit-fill-available;
+
+  &__list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 }

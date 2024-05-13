@@ -24,8 +24,12 @@ const CoursesView = () => {
           <ProfileBar />
         </div>
       </div>
-      <div className="universal-content">
-        <CardCourse title="lolka" img="" viewPage="Courses" isFavorite />
+      <div style={{ padding: "24px" }} className="universal-content">
+        <div className="universal-content__list">
+          <CardCourse title="lolka" img="" viewPage="Courses" isFavorite />
+          <CardCourse title="lolka" img="" viewPage="Courses" isFavorite />
+          <CardCourse title="lolka" img="" viewPage="Courses" isFavorite />
+        </div>
       </div>
     </div>
   );
