@@ -7,10 +7,11 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { CourseTab } from "./course";
 import SearchInput from "@/components/ui/search-input/SearchInput";
+import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
+import { CardCourse } from "@/components/ui/card-course/CardCourse";
 
 // import styles from "./MyCoursesView.module.scss";
 import "../index.scss";
-import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
 
 const MyCoursesView = () => {
   const [value, setValue] = useState<CourseTab>(CourseTab.Ongoing);
@@ -35,8 +36,16 @@ const MyCoursesView = () => {
           <ProfileBar />
         </div>
       </div>
-      <div className="">
-        <Box sx={{ width: "100%", typography: "body1" }}>
+      <div style={{ flexGrow: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            height: "100%",
+            typography: "body1",
+          }}
+        >
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <TabList
@@ -48,8 +57,15 @@ const MyCoursesView = () => {
                 <Tab label={CourseTab.Favorite} value={CourseTab.Favorite} />
               </TabList>
             </Box>
-            <div className="universal-content">
-              <TabPanel value={CourseTab.Ongoing}>Item One</TabPanel>
+            <div className="universal-content" style={{ flexGrow: 1 }}>
+              <TabPanel value={CourseTab.Ongoing}>
+                <CardCourse
+                  title="lolka"
+                  img=""
+                  viewPage="My courses"
+                  isFavorite
+                />
+              </TabPanel>
               <TabPanel value={CourseTab.Completed}>Item Two</TabPanel>
               <TabPanel value={CourseTab.Favorite}>Item Three</TabPanel>
             </div>

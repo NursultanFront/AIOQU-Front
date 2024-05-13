@@ -1,4 +1,7 @@
 .universal-layout {
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
   &__header {
   }
 

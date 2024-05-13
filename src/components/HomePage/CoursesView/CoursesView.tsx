@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import SearchInput from "@/components/ui/search-input/SearchInput";
 import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
+import { CardCourse } from "@/components/ui/card-course/CardCourse";
 import "../index.scss";
 
 // import styles from "./CoursesView.module.scss";
@@ -23,7 +24,9 @@ const CoursesView = () => {
           <ProfileBar />
         </div>
       </div>
-      <div className="universal-content"></div>
+      <div className="universal-content">
+        <CardCourse title="lolka" img="" viewPage="Courses" isFavorite />
+      </div>
     </div>
   );
 };
