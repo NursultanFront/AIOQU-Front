@@ -2,11 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { RoutePath } from "./router/routes";
 import LayoutMain from "./layout/LayoutMain";
-import OverviewView from "./components/HomePage/OverviewView/OverviewView";
-import MyCoursesView from "./components/HomePage/MyCoursesView/MyCoursesView";
-import CoursesView from "./components/HomePage/CoursesView/CoursesView";
-import MentorsView from "./components/HomePage/MentorsView/MentorsView";
-import SettingsView from "./components/HomePage/SettingsView/SettingsView";
+import OverviewView from "./pages/OverviewView/OverviewView";
+import MyCoursesView from "./pages/MyCoursesView/MyCoursesView";
+import CoursesView from "./pages/CoursesView/CoursesView";
+import MentorsView from "./pages/MentorsView/MentorsView";
+import SettingsView from "./pages/SettingsView/SettingsView";
 
 import "./App.css";
 
