@@ -33,11 +33,16 @@ const LayoutMain = () => {
   };
 
   useEffect(() => {
-    const path = Object.values(RoutePath).find(
-      (path) => path === location.pathname
+    const basePath = location.pathname.split("/")[1];
+
+    const matchedPath = Object.values(RoutePath).find(
+      (path) => path.split("/")[1] === basePath
     );
-    if (path) {
-      setActiveView(path);
+
+    if (matchedPath) {
+      setActiveView(matchedPath);
+    } else {
+      setActiveView(RoutePath.HOME);
     }
   }, [location.pathname]);
 

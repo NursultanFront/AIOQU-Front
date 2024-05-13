@@ -9,6 +9,7 @@ import MentorsView from "./pages/MentorsView/MentorsView";
 import SettingsView from "./pages/SettingsView/SettingsView";
 
 import "./App.css";
+import CoursePage from "./pages/CoursePage/CoursePage";
 
 function App() {
   return (
@@ -18,8 +19,20 @@ function App() {
           <Route index element={<>Главная</>} />
           <Route path={RoutePath.Overview} element={<OverviewView />} />
           <Route path={RoutePath.MyCourses} element={<MyCoursesView />} />
+          <Route
+            path={`${RoutePath.MyCourses}${RoutePath.InsideCourse}`}
+            element={<CoursePage />}
+          />
           <Route path={RoutePath.Courses} element={<CoursesView />} />
+          <Route
+            path={`${RoutePath.Courses}${RoutePath.InsideCourse}`}
+            element={<CoursePage />}
+          />
           <Route path={RoutePath.Mentors} element={<MentorsView />} />
+          <Route
+            path={`${RoutePath.Mentors}${RoutePath.InsideCourse}`}
+            element={<CoursePage />}
+          />
           <Route path={RoutePath.Settings} element={<SettingsView />} />
         </Route>
       </Routes>
