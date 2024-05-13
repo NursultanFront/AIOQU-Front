@@ -15,6 +15,7 @@ import { MentorIcon } from "@/components/icons/aside/MentorIcon";
 import { SettingIcon } from "@/components/icons/aside/SettingIcon";
 
 import styles from "./LayoutMain.module.scss";
+import { View } from "@/interface/view";
 
 // #8F92B5
 const LayoutMain = () => {
@@ -84,7 +85,7 @@ const LayoutMain = () => {
                     activeView === RoutePath.Overview ? "#151422" : "#8F92B5"
                   }
                 />
-                {isAsideOpen && <span>{RoutePath.Overview}</span>}
+                {isAsideOpen && <span>{View.Overview}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
@@ -98,7 +99,7 @@ const LayoutMain = () => {
                     activeView === RoutePath.MyCourses ? "#151422" : "#8F92B5"
                   }
                 />
-                {isAsideOpen && <span>{RoutePath.MyCourses}</span>}
+                {isAsideOpen && <span>{View.MyCourses}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
@@ -112,7 +113,7 @@ const LayoutMain = () => {
                     activeView === RoutePath.Courses ? "#151422" : "#8F92B5"
                   }
                 />
-                {isAsideOpen && <span>{RoutePath.Courses}</span>}
+                {isAsideOpen && <span>{View.Courses}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
@@ -126,7 +127,7 @@ const LayoutMain = () => {
                     activeView === RoutePath.Mentors ? "#151422" : "#8F92B5"
                   }
                 />
-                {isAsideOpen && <span>{RoutePath.Mentors}</span>}
+                {isAsideOpen && <span>{View.Mentors}</span>}
               </li>
               <li
                 className={cn(styles.aside__nav__item, {
@@ -140,7 +141,7 @@ const LayoutMain = () => {
                     activeView === RoutePath.Settings ? "#151422" : "#8F92B5"
                   }
                 />
-                {isAsideOpen && <span>{RoutePath.Settings}</span>}
+                {isAsideOpen && <span>{View.Settings}</span>}
               </li>
             </ul>
           </nav>
