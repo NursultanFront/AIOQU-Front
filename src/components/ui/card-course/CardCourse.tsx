@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -35,113 +35,115 @@ export const CardCourse = (props: Props) => {
   }, [img]);
 
   return (
-    <div className={styles.primer}>
-      <Card sx={{ maxWidth: 500 }}>
-        <Box
-          sx={{ p: 3, display: "flex", flexDirection: "column", gap: "10px" }}
-        >
-          <Stack direction="row">
-            <CardMedia
-              component="img"
-              alt="course"
-              height="140"
-              image={image}
-              sx={{ width: 200, objectFit: "contain" }}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </Typography>
+    <>
+      <div className={styles.primer}>
+        <Card sx={{ maxWidth: 500 }}>
+          <Box
+            sx={{ p: 3, display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <Stack direction="row">
+              <CardMedia
+                component="img"
+                alt="course"
+                height="140"
+                image={image}
+                sx={{ width: 200, objectFit: "contain" }}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </Typography>
 
-              {(viewPage === View.Courses || viewPage === "Favorite") && (
-                <button className={styles.btn}>
-                  {isFavorite ? (
-                    <FavoriteBorderIcon className={styles.redIcon} />
-                  ) : (
-                    <FavoriteIcon className={styles.redIcon} />
-                  )}
-                </button>
-              )}
-            </CardContent>
-          </Stack>
-          <LinearProgress variant="determinate" value={60} />
-          <div className={styles.card__text}>
-            You’ve completed course for 60%
-          </div>
-          {viewPage === View.MyCourses && (
-            <CardActions
-              sx={{
-                p: 0,
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "10px",
-              }}
-            >
-              <Button
-                variant="contained"
-                size="large"
+                {(viewPage === View.Courses || viewPage === "Favorite") && (
+                  <button className={styles.btn}>
+                    {isFavorite ? (
+                      <FavoriteBorderIcon className={styles.redIcon} />
+                    ) : (
+                      <FavoriteIcon className={styles.redIcon} />
+                    )}
+                  </button>
+                )}
+              </CardContent>
+            </Stack>
+            <LinearProgress variant="determinate" value={60} />
+            <div className={styles.card__text}>
+              You’ve completed course for 60%
+            </div>
+            {viewPage === View.MyCourses && (
+              <CardActions
                 sx={{
-                  width: "100%",
+                  p: 0,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "10px",
                 }}
               >
-                To the course
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
+                <Button
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    width: "100%",
+                  }}
+                >
+                  To the course
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  sx={{
+                    width: "100%",
+                  }}
+                >
+                  To the module
+                </Button>
+              </CardActions>
+            )}
+            {viewPage === "Complete" && (
+              <CardActions
                 sx={{
-                  width: "100%",
+                  p: 0,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "10px",
                 }}
               >
-                To the module
-              </Button>
-            </CardActions>
-          )}
-          {viewPage === "Complete" && (
-            <CardActions
-              sx={{
-                p: 0,
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "10px",
-              }}
-            >
-              <Button
-                variant="outlined"
-                size="large"
+                <Button
+                  variant="outlined"
+                  size="large"
+                  sx={{
+                    width: "100%",
+                  }}
+                >
+                  To the course
+                </Button>
+              </CardActions>
+            )}
+            {(viewPage === View.Courses || viewPage === "Favorite") && (
+              <CardActions
                 sx={{
-                  width: "100%",
+                  p: 0,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "10px",
                 }}
               >
-                To the course
-              </Button>
-            </CardActions>
-          )}
-          {(viewPage === View.Courses || viewPage === "Favorite") && (
-            <CardActions
-              sx={{
-                p: 0,
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "10px",
-              }}
-            >
-              <Button
-                variant="contained"
-                size="large"
-                sx={{
-                  width: "100%",
-                }}
-              >
-                Start
-              </Button>
-            </CardActions>
-          )}
-        </Box>
-      </Card>
-    </div>
+                <Button
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    width: "100%",
+                  }}
+                >
+                  Start
+                </Button>
+              </CardActions>
+            )}
+          </Box>
+        </Card>
+      </div>
+    </>
   );
 };

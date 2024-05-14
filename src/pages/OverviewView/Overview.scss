@@ -1,0 +1,25 @@
+.overview {
+  display: flex;
+  height: -webkit-fill-available;
+
+  &__left-block {
+    flex-grow: 1;
+
+    overflow: auto;
+
+    .unversal-header {
+      padding-right: 20px;
+      background-color: #f5f7fa;
+    }
+  }
+
+  &__content {
+    padding: 0px 0 0 20px;
+    flex-grow: 1;
+  }
+
+  &__right-block {
+    padding: 20px;
+    background-color: rgba(157, 161, 200, 0.1);
+  }
+}
