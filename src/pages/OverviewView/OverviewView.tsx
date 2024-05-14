@@ -45,7 +45,7 @@ const OverviewView = () => {
       <div className="universal-layout overview__left-block">
         <div className="unversal-header">
           <div className="unversal-header__left-block">
-            <div className="title">My courses</div>
+            <div className="title">Hi, Stan Smith</div>
             <div className="subtitle">Let’s continue learning!</div>
           </div>
           <div className="unversal-header__right-block">
