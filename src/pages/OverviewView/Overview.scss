@@ -18,7 +18,14 @@
   }
 
   &__right-block {
+    overflow: auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    max-width: 525px;
     background-color: #f5f7fa;
   }
 }

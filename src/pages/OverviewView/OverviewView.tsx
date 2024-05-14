@@ -1,11 +1,10 @@
-// import styles from "./Overview.module.scss";
 import { useState } from "react";
 import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
 import { Chart } from "react-google-charts";
 import DatePicker from "react-datepicker";
 
 import "./Overview.scss";
-// import "react-datepicker/dist/react-datepicker.css";
+import { TodayTask } from "@/components/overview/TaskToday/TodayTask";
 
 export const data = [
   ["Discipline", "Percentage"],
@@ -64,6 +63,8 @@ const OverviewView = () => {
       </div>
       <div className="overview__right-block">
         <DatePicker selected={startDate} onChange={changeDate} inline />
+
+        <TodayTask title="Lorem ipsum dolor sit amet." />
       </div>
     </div>
   );
