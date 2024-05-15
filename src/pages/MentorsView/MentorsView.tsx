@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import SearchInput from "@/components/ui/search-input/SearchInput";
 import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
+import { StyledTreeExample } from "@/components/course-page/tree-module/TreeModule";
 import "../index.scss";
 
 const MentorsView = () => {
@@ -23,6 +24,7 @@ const MentorsView = () => {
       </div>
       <div style={{ padding: "24px" }} className="universal-content">
         <div className="universal-content__list"></div>
+        <StyledTreeExample />
       </div>
     </div>
   );
