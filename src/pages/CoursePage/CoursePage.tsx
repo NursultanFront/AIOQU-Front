@@ -16,7 +16,7 @@ import {
   AccordionSummary,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import StyledTreeExample from "@/components/course-page/tree-module/TreeModule";
+import { TreeModule } from "@/components/course-page/tree-module/TreeModule";
 
 type Props = {
   img?: string;
@@ -112,7 +112,7 @@ const CoursePage = (props: Props) => {
                 Worem ipsum
               </AccordionSummary>
               <AccordionDetails>
-                <StyledTreeExample />
+                <TreeModule />
               </AccordionDetails>
             </Accordion>
           </div>
