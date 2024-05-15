@@ -28,6 +28,8 @@
 
 .content {
   display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
 
   &__left {
     flex-grow: 1;

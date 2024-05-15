@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import SearchInput from "@/components/ui/search-input/SearchInput";
 import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
 import "../index.scss";
+import MentorCard from "@/components/mentor/mentor-card/MentorCard";
 
 const MentorsView = () => {
   const [searchValue, setSearchValue] = useState<string>("");
@@ -22,7 +23,9 @@ const MentorsView = () => {
         </div>
       </div>
       <div style={{ padding: "24px" }} className="universal-content">
-        <div className="universal-content__list"></div>
+        <div className="universal-content__list">
+          <MentorCard />
+        </div>
       </div>
     </div>
   );

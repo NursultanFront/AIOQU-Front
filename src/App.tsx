@@ -20,17 +20,17 @@ function App() {
           <Route path={RoutePath.Overview} element={<OverviewView />} />
           <Route path={RoutePath.MyCourses} element={<MyCoursesView />} />
           <Route
-            path={`${RoutePath.MyCourses}${RoutePath.InsideCourse}`}
+            path={`${RoutePath.MyCourses}${RoutePath.Course}`}
             element={<CoursePage />}
           />
           <Route path={RoutePath.Courses} element={<CoursesView />} />
           <Route
-            path={`${RoutePath.Courses}${RoutePath.InsideCourse}`}
+            path={`${RoutePath.Courses}${RoutePath.Course}`}
             element={<CoursePage />}
           />
           <Route path={RoutePath.Mentors} element={<MentorsView />} />
           <Route
-            path={`${RoutePath.Mentors}${RoutePath.InsideCourse}`}
+            path={`${RoutePath.Mentors}${RoutePath.Course}`}
             element={<CoursePage />}
           />
           <Route path={RoutePath.Settings} element={<SettingsView />} />

@@ -17,10 +17,10 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { TreeModule } from "@/components/course-page/tree-module/TreeModule";
-
+import { MentorBox } from "@/components/mentor/mentor-box/MentorBox";
 type Props = {
   img?: string;
-  title: string;
+  title?: string;
 };
 
 const CoursePage = (props: Props) => {
@@ -117,7 +117,9 @@ const CoursePage = (props: Props) => {
             </Accordion>
           </div>
         </div>
-        <div className={styles.content__right}></div>
+        <div className={styles.content__right}>
+          <MentorBox />
+        </div>
       </div>
     </div>
   );
