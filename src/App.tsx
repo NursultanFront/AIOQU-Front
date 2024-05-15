@@ -10,6 +10,7 @@ import SettingsView from "./pages/SettingsView/SettingsView";
 
 import "./App.css";
 import CoursePage from "./pages/CoursePage/CoursePage";
+import ModulePage from "./pages/ModulePage/ModulePage";
 
 function App() {
   return (
@@ -23,15 +24,27 @@ function App() {
             path={`${RoutePath.MyCourses}${RoutePath.Course}`}
             element={<CoursePage />}
           />
+          <Route
+            path={`${RoutePath.MyCourses}${RoutePath.Course}${RoutePath.Module}`}
+            element={<ModulePage />}
+          />
           <Route path={RoutePath.Courses} element={<CoursesView />} />
           <Route
             path={`${RoutePath.Courses}${RoutePath.Course}`}
             element={<CoursePage />}
           />
+          <Route
+            path={`${RoutePath.Courses}${RoutePath.Course}${RoutePath.Module}`}
+            element={<ModulePage />}
+          />
           <Route path={RoutePath.Mentors} element={<MentorsView />} />
           <Route
             path={`${RoutePath.Mentors}${RoutePath.Course}`}
             element={<CoursePage />}
+          />
+          <Route
+            path={`${RoutePath.Mentors}${RoutePath.Course}${RoutePath.Module}`}
+            element={<ModulePage />}
           />
           <Route path={RoutePath.Settings} element={<SettingsView />} />
         </Route>

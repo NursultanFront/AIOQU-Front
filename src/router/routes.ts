@@ -6,4 +6,5 @@ export enum RoutePath {
   Courses = "/courses",
   Mentors = "/mentors",
   Settings = "/settings",
+  Module = "/module",
 }

@@ -1,30 +1,18 @@
-import { useCallback, useMemo, useState } from "react";
-
 import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
 
-import styles from "./CoursePage.module.scss";
+import { Box, Stack, CardMedia, CardContent, Typography } from "@mui/material";
+import React, { useMemo } from "react";
+
+import styles from "./ModulePage.module.scss";
 
 import "../index.scss";
-import {
-  Box,
-  Stack,
-  CardMedia,
-  CardContent,
-  Typography,
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { TreeModule } from "@/components/course-page/tree-module/TreeModule";
-import { MentorBox } from "@/components/mentor/mentor-box/MentorBox";
 
 type Props = {
   img?: string;
   title?: string;
 };
 
-const CoursePage = (props: Props) => {
+const ModulePage = (props: Props) => {
   const { img, title } = props;
 
   const image = useMemo(() => {
@@ -83,47 +71,9 @@ const CoursePage = (props: Props) => {
       <div
         style={{ padding: "24px" }}
         className={`universal-content ${styles.content}`}
-      >
-        <div className={styles.content__left}>
-          <div className={styles.content__item}>
-            <Accordion defaultExpanded>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Introduction
-              </AccordionSummary>
-              <AccordionDetails>
-                Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                vulputate libero et velit interdum, ac aliquet odio mattis.
-                Class aptent taciti sociosqu ad litora torquent per conubia
-                nostra, per inceptos himenaeos.
-              </AccordionDetails>
-            </Accordion>
-          </div>
-
-          <div className={styles.content__item}>
-            <Accordion defaultExpanded>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Worem ipsum
-              </AccordionSummary>
-              <AccordionDetails>
-                <TreeModule />
-              </AccordionDetails>
-            </Accordion>
-          </div>
-        </div>
-        <div className={styles.content__right}>
-          <MentorBox />
-        </div>
-      </div>
+      ></div>
     </div>
   );
 };
 
-export default CoursePage;
+export default ModulePage;
