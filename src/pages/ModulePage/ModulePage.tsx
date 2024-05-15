@@ -1,11 +1,25 @@
 import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
 
 import { Box, Stack, CardMedia, CardContent, Typography } from "@mui/material";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
+
+import { Player, BigPlayButton, ControlBar } from "video-react";
 
 import styles from "./ModulePage.module.scss";
 
 import "../index.scss";
+import { ModuleMentor } from "@/components/module-page/ModuleMentor/ModuleMentor";
+import VideoList from "@/components/module-page/VideoList/VideoList";
+import LessonOverview from "@/components/module-page/LessonOverview/LessonOverview";
+
+function mock() {}
+
+const videos = [
+  { id: 1, title: "Lesson 1. Norem ipsum dolor sit amet", url: "#1" },
+  { id: 2, title: "Lesson 2. Norem ipsum dolor sit amet", url: "#2" },
+  { id: 3, title: "Lesson 3. Norem ipsum dolor sit amet", url: "#3" },
+  { id: 4, title: "Lesson 4. Norem ipsum dolor sit amet", url: "#4" },
+];
 
 type Props = {
   img?: string;
@@ -71,7 +85,29 @@ const ModulePage = (props: Props) => {
       <div
         style={{ padding: "24px" }}
         className={`universal-content ${styles.content}`}
-      ></div>
+      >
+        <div className={styles.content__left}>
+          <div>
+            <Player
+              onPlay={mock}
+              onEnded={mock}
+              onLoadStart={mock}
+              onPause={mock}
+              videoId={""}
+            >
+              <BigPlayButton position="center" />
+              <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+              <ControlBar autoHide={true}></ControlBar>
+            </Player>
+          </div>
+          <LessonOverview></LessonOverview>
+        </div>
+        <div className={styles.content__right}>
+          <ModuleMentor name={"Dina"} subject={"Math"} imageUrl={""} />
+
+          <VideoList videos={videos} />
+        </div>
+      </div>
     </div>
   );
 };

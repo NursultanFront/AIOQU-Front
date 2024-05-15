@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const MentorCard = () => {
+  const image = useMemo(() => {
+    return "https://via.placeholder.com/80";
+  }, []);
+
   return (
     <Card sx={{ display: "flex", flexDirection: "column", p: 2, width: 430 }}>
       <CardContent sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
         <CardMedia
           component="img"
           sx={{ width: 80, height: 80, borderRadius: "50%" }}
-          image="https://via.placeholder.com/80"
+          image={image}
           alt="Mentor"
         />
 
