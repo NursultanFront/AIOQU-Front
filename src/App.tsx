@@ -6,7 +6,7 @@ import OverviewView from "./pages/OverviewView/OverviewView";
 import MyCoursesView from "./pages/MyCoursesView/MyCoursesView";
 import CoursesView from "./pages/CoursesView/CoursesView";
 import MentorsView from "./pages/MentorsView/MentorsView";
-import SettingsView from "./pages/SettingsView/SettingsView";
+// import SettingsView from "./pages/SettingsView/SettingsView";
 
 import "./App.css";
 import CoursePage from "./pages/CoursePage/CoursePage";
@@ -46,7 +46,7 @@ function App() {
             path={`${RoutePath.Mentors}${RoutePath.Course}${RoutePath.Module}`}
             element={<ModulePage />}
           />
-          <Route path={RoutePath.Settings} element={<SettingsView />} />
+          {/* <Route path={RoutePath.Settings} element={<SettingsView />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

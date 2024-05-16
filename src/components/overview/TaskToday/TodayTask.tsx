@@ -13,6 +13,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import styles from "./TaskToday.module.scss";
 import CustomCheckbox from "@/components/ui/checkbox/Checkbox";
 import ParentCheckbox from "@/components/ui/checkbox/ParentCheckbox";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   img?: string;
@@ -22,8 +23,14 @@ type Props = {
 export const TodayTask = (props: Props) => {
   const { img, title } = props;
 
+  const navigate = useNavigate();
+
   const [parentChecked, setParentChecked] = useState<boolean>(false);
   const [childChecked, setChildChecked] = useState<boolean[]>([]);
+
+  const goToCourse = (courseId: number) => {
+    navigate(`/courses/course/${courseId}`);
+  };
 
   const getCheckboxesState = (state: {
     parent: boolean;
@@ -75,6 +82,7 @@ export const TodayTask = (props: Props) => {
             sx={{
               width: "100%",
             }}
+            onClick={() => goToCourse(1)}
           >
             To the course
           </Button>

@@ -51,6 +51,7 @@ const CoursesView = () => {
           {filteredCourseList.map((course) => (
             <CardCourse
               key={course.id}
+              id={course.id}
               title={course.title}
               img={course.image || ""}
               viewPage="Courses"

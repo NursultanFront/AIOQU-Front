@@ -4,7 +4,6 @@ import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
 
 import styles from "./CoursePage.module.scss";
 
-import "../index.scss";
 import {
   Box,
   Stack,
@@ -18,6 +17,8 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { TreeModule } from "@/components/course-page/tree-module/TreeModule";
 import { MentorBox } from "@/components/mentor/mentor-box/MentorBox";
+
+import "../index.scss";
 
 type Props = {
   img?: string;

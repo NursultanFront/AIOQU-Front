@@ -87,6 +87,7 @@ const MyCoursesView = () => {
                   {filteredCourseList.map((course) => (
                     <CardCourse
                       key={course.id}
+                      id={course.id}
                       title={course.title}
                       img=""
                       viewPage="My courses"
@@ -106,6 +107,7 @@ const MyCoursesView = () => {
                   {filteredCourseList.map((course) => (
                     <CardCourse
                       key={course.id}
+                      id={course.id}
                       title={course.title}
                       img=""
                       viewPage="Complete"
@@ -124,6 +126,7 @@ const MyCoursesView = () => {
                   )}
                   {filteredCourseList.map((course) => (
                     <CardCourse
+                      id={course.id}
                       key={course.id}
                       title={course.title}
                       img=""

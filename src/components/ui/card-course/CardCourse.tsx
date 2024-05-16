@@ -15,10 +15,12 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import styles from "./CardCourse.module.scss";
 import { View } from "@/interface/view";
+import { useNavigate } from "react-router-dom";
 
 type ViewPage = "My courses" | "Courses" | "Mentors" | "Favorite" | "Complete";
 
 type Props = {
+  id: number;
   img?: string;
   title: string;
   viewPage: ViewPage;
@@ -27,7 +29,17 @@ type Props = {
 };
 
 export const CardCourse = (props: Props) => {
-  const { img, title, viewPage, isFavorite = false, descr } = props;
+  const { id, img, title, viewPage, isFavorite = false, descr } = props;
+
+  const navigate = useNavigate();
+
+  const goToCourse = (courseId: number) => {
+    navigate(`/courses/course/${courseId}`);
+  };
+
+  const goToModule = (courseId: number, moduleId: number) => {
+    navigate(`/courses/course/${courseId}/module/${moduleId}`);
+  };
 
   const image = useMemo(() => {
     return img
@@ -88,6 +100,7 @@ export const CardCourse = (props: Props) => {
                   sx={{
                     width: "100%",
                   }}
+                  onClick={() => goToCourse(id)}
                 >
                   To the course
                 </Button>
@@ -97,6 +110,7 @@ export const CardCourse = (props: Props) => {
                   sx={{
                     width: "100%",
                   }}
+                  onClick={() => goToModule(id, 1)}
                 >
                   To the module
                 </Button>
@@ -117,6 +131,7 @@ export const CardCourse = (props: Props) => {
                   sx={{
                     width: "100%",
                   }}
+                  onClick={() => goToCourse(id)}
                 >
                   To the course
                 </Button>
@@ -137,6 +152,7 @@ export const CardCourse = (props: Props) => {
                   sx={{
                     width: "100%",
                   }}
+                  onClick={() => goToCourse(id)}
                 >
                   Start
                 </Button>

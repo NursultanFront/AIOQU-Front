@@ -12,7 +12,7 @@ import AsideOpenIcon from "@/assets/img/aside-open.png";
 import { MyCoursesIcon } from "@/components/icons/aside/MyCoursesIcon";
 import CoursesIcon from "@/components/icons/aside/CoursesIcon";
 import { MentorIcon } from "@/components/icons/aside/MentorIcon";
-import { SettingIcon } from "@/components/icons/aside/SettingIcon";
+// import { SettingIcon } from "@/components/icons/aside/SettingIcon";
 
 import styles from "./LayoutMain.module.scss";
 import { View } from "@/interface/view";
@@ -139,7 +139,7 @@ const LayoutMain = () => {
                 />
                 {isAsideOpen && <span>{View.Mentors}</span>}
               </li>
-              <li
+              {/* <li
                 className={cn(styles.aside__nav__item, {
                   [styles.aside__nav__item__active]:
                     activeView === RoutePath.Settings,
@@ -152,7 +152,7 @@ const LayoutMain = () => {
                   }
                 />
                 {isAsideOpen && <span>{View.Settings}</span>}
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
