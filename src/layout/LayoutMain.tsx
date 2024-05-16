@@ -16,6 +16,7 @@ import { SettingIcon } from "@/components/icons/aside/SettingIcon";
 
 import styles from "./LayoutMain.module.scss";
 import { View } from "@/interface/view";
+import { api } from "@/api";
 
 // #8F92B5
 const LayoutMain = () => {
@@ -45,6 +46,10 @@ const LayoutMain = () => {
       setActiveView(RoutePath.HOME);
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    api.blocks.block();
+  }, []);
 
   return (
     <section className={styles.layoutMain}>
