@@ -1,10 +1,20 @@
 import React, { useMemo } from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Mentor } from "@/api/mentor-rest/types";
 
-const MentorCard = () => {
+interface MentorCardProps {
+  mentor: Mentor;
+}
+
+const MentorCard: React.FC<MentorCardProps> = ({ mentor }) => {
   const image = useMemo(() => {
-    return "https://via.placeholder.com/80";
-  }, []);
+    return mentor.image || "https://via.placeholder.com/80";
+  }, [mentor.image]);
+
+  const fullName = `${mentor.first_name} ${mentor.last_name}`;
+  const specialties = mentor.specialties
+    .map((specialty) => specialty.title)
+    .join(", ");
 
   return (
     <Card sx={{ display: "flex", flexDirection: "column", p: 2, width: 430 }}>
@@ -18,14 +28,14 @@ const MentorCard = () => {
 
         <div>
           <Typography component="div" variant="h6">
-            Emily Shine
+            {fullName}
           </Typography>
           <Typography
             variant="subtitle1"
             color="text.secondary"
             component="div"
           >
-            UX/UI design
+            {specialties}
           </Typography>
         </div>
       </CardContent>
@@ -33,7 +43,7 @@ const MentorCard = () => {
         sx={{ display: "flex", flexDirection: "column", gap: "10px", pt: 0 }}
       >
         <Typography variant="body2" color="text.secondary" component="p">
-          Korem ipsum dolor sit amet, consectetur adipiscing elit.
+          {mentor.biography}
         </Typography>
         <Typography
           variant="body2"

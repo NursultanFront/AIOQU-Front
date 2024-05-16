@@ -71,6 +71,7 @@ const MyCoursesView = () => {
                 <div className="universal-content__list">
                   {courseList.map((course) => (
                     <CardCourse
+                      key={course.id}
                       title={course.title}
                       img=""
                       viewPage="My courses"
@@ -84,6 +85,7 @@ const MyCoursesView = () => {
                 <div className="universal-content__list">
                   {courseList.map((course) => (
                     <CardCourse
+                      key={course.id}
                       title={course.title}
                       img=""
                       viewPage="Complete"
@@ -97,6 +99,7 @@ const MyCoursesView = () => {
                 <div className="universal-content__list">
                   {courseList.map((course) => (
                     <CardCourse
+                      key={course.id}
                       title={course.title}
                       img=""
                       viewPage="Favorite"

@@ -37,6 +37,7 @@ const CoursesView = () => {
         <div className="universal-content__list">
           {courseList.map((course) => (
             <CardCourse
+              key={course.id}
               title={course.title}
               img=""
               viewPage="Courses"
