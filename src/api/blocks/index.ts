@@ -1,3 +1,4 @@
+import { BlockList } from "net";
 import { BasicRest } from "../basic-rest";
 
 import type { AxiosInstance } from "axios";
@@ -9,6 +10,6 @@ export class BlocksRest extends BasicRest {
   }
 
   public block() {
-    return this.getRequest("/blocks/");
+    return this.getRequest<BlockList>("/blocks/");
   }
 }

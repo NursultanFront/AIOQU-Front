@@ -1,6 +1,7 @@
 import { BasicRest } from "../basic-rest";
 
 import type { AxiosInstance } from "axios";
+import { CourseList } from "./types";
 // import type { Advisor, AdvisorList, Registered } from './types'
 
 export class CourseRest extends BasicRest {
@@ -9,6 +10,6 @@ export class CourseRest extends BasicRest {
   }
 
   public courses() {
-    return this.getRequest("/courses/");
+    return this.getRequest<CourseList>("/courses/");
   }
 }
