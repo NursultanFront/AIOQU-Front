@@ -7,4 +7,5 @@ export interface Course {
   course_type: string;
   description: string;
   is_favorite: boolean;
+  image?: string;
 }

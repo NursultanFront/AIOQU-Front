@@ -6,11 +6,10 @@ import "../index.scss";
 import { api } from "@/api";
 import { CourseList } from "@/api/course-rest/types";
 
-// import styles from "./CoursesView.module.scss";
-
 const CoursesView = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [courseList, setCourseList] = useState<CourseList>([]);
+  const [filteredCourseList, setFilteredCourseList] = useState<CourseList>([]);
 
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
@@ -19,8 +18,17 @@ const CoursesView = () => {
   useEffect(() => {
     api.courses.courses().then((response) => {
       setCourseList(response);
+      setFilteredCourseList(response);
     });
   }, []);
+
+  useEffect(() => {
+    setFilteredCourseList(
+      courseList.filter((course) =>
+        course.title.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    );
+  }, [searchValue, courseList]);
 
   return (
     <div className="universal-layout">
@@ -35,18 +43,21 @@ const CoursesView = () => {
       </div>
       <div style={{ padding: "24px" }} className="universal-content">
         <div className="universal-content__list">
-          {courseList.map((course) => (
+          {filteredCourseList.length === 0 && (
+            <div style={{ padding: "20px", textAlign: "center" }}>
+              Ничего не найдено
+            </div>
+          )}
+          {filteredCourseList.map((course) => (
             <CardCourse
               key={course.id}
               title={course.title}
-              img=""
+              img={course.image || ""}
               viewPage="Courses"
               isFavorite={course.is_favorite}
               descr={course.description}
             />
           ))}
-          {/* <CardCourse title="lolka" img="" viewPage="Courses" isFavorite />
-          <CardCourse title="lolka" img="" viewPage="Courses" isFavorite /> */}
         </div>
       </div>
     </div>

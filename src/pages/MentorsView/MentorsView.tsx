@@ -45,6 +45,11 @@ const MentorsView = () => {
       </div>
       <div style={{ padding: "24px" }} className="universal-content">
         <div className="universal-content__list">
+          {filteredMentorList.length === 0 && (
+            <div style={{ padding: "20px", textAlign: "center" }}>
+              Ничего не найдено
+            </div>
+          )}
           {filteredMentorList.map((mentor) => (
             <MentorCard key={mentor.id} mentor={mentor} />
           ))}

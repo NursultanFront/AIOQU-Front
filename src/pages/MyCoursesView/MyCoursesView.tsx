@@ -19,6 +19,7 @@ const MyCoursesView = () => {
   const [value, setValue] = useState<CourseTab>(CourseTab.Ongoing);
   const [searchValue, setSearchValue] = useState<string>("");
   const [courseList, setCourseList] = useState<CourseList>([]);
+  const [filteredCourseList, setFilteredCourseList] = useState<CourseList>([]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: CourseTab) => {
     setValue(newValue);
@@ -31,8 +32,17 @@ const MyCoursesView = () => {
   useEffect(() => {
     api.courses.courses().then((response) => {
       setCourseList(response);
+      setFilteredCourseList(response);
     });
   }, []);
+
+  useEffect(() => {
+    setFilteredCourseList(
+      courseList.filter((course) =>
+        course.title.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    );
+  }, [searchValue, courseList]);
 
   return (
     <div className="universal-layout">
@@ -69,7 +79,12 @@ const MyCoursesView = () => {
             <div className="universal-content" style={{ flexGrow: 1 }}>
               <TabPanel value={CourseTab.Ongoing}>
                 <div className="universal-content__list">
-                  {courseList.map((course) => (
+                  {filteredCourseList.length === 0 && (
+                    <div style={{ padding: "20px", textAlign: "center" }}>
+                      Ничего не найдено
+                    </div>
+                  )}
+                  {filteredCourseList.map((course) => (
                     <CardCourse
                       key={course.id}
                       title={course.title}
@@ -83,7 +98,12 @@ const MyCoursesView = () => {
               </TabPanel>
               <TabPanel value={CourseTab.Completed}>
                 <div className="universal-content__list">
-                  {courseList.map((course) => (
+                  {filteredCourseList.length === 0 && (
+                    <div style={{ padding: "20px", textAlign: "center" }}>
+                      Ничего не найдено
+                    </div>
+                  )}
+                  {filteredCourseList.map((course) => (
                     <CardCourse
                       key={course.id}
                       title={course.title}
@@ -97,7 +117,12 @@ const MyCoursesView = () => {
               </TabPanel>
               <TabPanel value={CourseTab.Favorite}>
                 <div className="universal-content__list">
-                  {courseList.map((course) => (
+                  {filteredCourseList.length === 0 && (
+                    <div style={{ padding: "20px", textAlign: "center" }}>
+                      Ничего не найдено
+                    </div>
+                  )}
+                  {filteredCourseList.map((course) => (
                     <CardCourse
                       key={course.id}
                       title={course.title}
