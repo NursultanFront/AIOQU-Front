@@ -23,10 +23,11 @@ type Props = {
   title: string;
   viewPage: ViewPage;
   isFavorite: boolean;
+  descr: string;
 };
 
 export const CardCourse = (props: Props) => {
-  const { img, title, viewPage, isFavorite = false } = props;
+  const { img, title, viewPage, isFavorite = false, descr } = props;
 
   const image = useMemo(() => {
     return img
@@ -37,7 +38,7 @@ export const CardCourse = (props: Props) => {
   return (
     <>
       <div className={styles.primer}>
-        <Card sx={{ maxWidth: 500 }}>
+        <Card sx={{ width: 500 }}>
           <Box
             sx={{ p: 3, display: "flex", flexDirection: "column", gap: "10px" }}
           >
@@ -54,7 +55,7 @@ export const CardCourse = (props: Props) => {
                   {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  {descr}
                 </Typography>
 
                 {(viewPage === View.Courses || viewPage === "Favorite") && (

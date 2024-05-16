@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { Box } from "@mui/material";
 import Tab from "@mui/material/Tab";
@@ -12,10 +12,13 @@ import { CardCourse } from "@/components/ui/card-course/CardCourse";
 
 // import styles from "./MyCoursesView.module.scss";
 import "../index.scss";
+import { api } from "@/api";
+import { CourseList } from "@/api/course-rest/types";
 
 const MyCoursesView = () => {
   const [value, setValue] = useState<CourseTab>(CourseTab.Ongoing);
   const [searchValue, setSearchValue] = useState<string>("");
+  const [courseList, setCourseList] = useState<CourseList>([]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: CourseTab) => {
     setValue(newValue);
@@ -23,6 +26,12 @@ const MyCoursesView = () => {
 
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
+  }, []);
+
+  useEffect(() => {
+    api.courses.courses().then((response) => {
+      setCourseList(response);
+    });
   }, []);
 
   return (
@@ -60,32 +69,41 @@ const MyCoursesView = () => {
             <div className="universal-content" style={{ flexGrow: 1 }}>
               <TabPanel value={CourseTab.Ongoing}>
                 <div className="universal-content__list">
-                  <CardCourse
-                    title="lolka"
-                    img=""
-                    viewPage="My courses"
-                    isFavorite
-                  />
+                  {courseList.map((course) => (
+                    <CardCourse
+                      title={course.title}
+                      img=""
+                      viewPage="My courses"
+                      isFavorite={course.is_favorite}
+                      descr={course.description}
+                    />
+                  ))}
                 </div>
               </TabPanel>
               <TabPanel value={CourseTab.Completed}>
                 <div className="universal-content__list">
-                  <CardCourse
-                    title="lolka"
-                    img=""
-                    viewPage="Complete"
-                    isFavorite
-                  />
+                  {courseList.map((course) => (
+                    <CardCourse
+                      title={course.title}
+                      img=""
+                      viewPage="Complete"
+                      isFavorite={course.is_favorite}
+                      descr={course.description}
+                    />
+                  ))}
                 </div>
               </TabPanel>
               <TabPanel value={CourseTab.Favorite}>
                 <div className="universal-content__list">
-                  <CardCourse
-                    title="lolka"
-                    img=""
-                    viewPage="Favorite"
-                    isFavorite
-                  />
+                  {courseList.map((course) => (
+                    <CardCourse
+                      title={course.title}
+                      img=""
+                      viewPage="Favorite"
+                      isFavorite={course.is_favorite}
+                      descr={course.description}
+                    />
+                  ))}
                 </div>
               </TabPanel>
             </div>
