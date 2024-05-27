@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Tabs, Tab, Box, Typography } from "@mui/material";
+import { Tab, Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { LessonTab } from "./lesson";
@@ -8,6 +8,7 @@ const LessonOverview: React.FC = () => {
   const [value, setValue] = useState<LessonTab>(LessonTab.Overview);
 
   const handleChange = (event: React.SyntheticEvent, newValue: LessonTab) => {
+    console.log(event);
     setValue(newValue);
   };
 
@@ -87,8 +88,8 @@ const LessonOverview: React.FC = () => {
                 </li>
               </ul>
             </TabPanel>
-            <TabPanel value={LessonTab.Task} disabled></TabPanel>
-            <TabPanel value={LessonTab.HomeWork} disabled></TabPanel>
+            <TabPanel value={LessonTab.Task}></TabPanel>
+            <TabPanel value={LessonTab.HomeWork}></TabPanel>
           </div>
         </TabContext>
       </Box>

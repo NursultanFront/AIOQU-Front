@@ -41,6 +41,9 @@ export const TodayTask = (props: Props) => {
   };
 
   const image = useMemo(() => {
+    console.log(parentChecked);
+    console.log(childChecked);
+
     return img
       ? img
       : "https://img.freepik.com/premium-vector/stem-education-logo-banner-on-white-background_1308-62258.jpg?w=2000";

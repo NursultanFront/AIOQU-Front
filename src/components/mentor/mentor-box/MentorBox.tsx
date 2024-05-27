@@ -1,8 +1,6 @@
-import React from "react";
-import "./MentorBox.scss";
 import MentorCard from "../mentor-card/MentorCard";
 import { Mentor } from "@/api/mentor-rest/types";
-
+import "./MentorBox.scss";
 type Props = {
   mentor: Mentor;
 };

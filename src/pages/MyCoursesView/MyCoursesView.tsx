@@ -22,6 +22,7 @@ const MyCoursesView = () => {
   const [filteredCourseList, setFilteredCourseList] = useState<CourseList>([]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: CourseTab) => {
+    console.log(event)
     setValue(newValue);
   };
 

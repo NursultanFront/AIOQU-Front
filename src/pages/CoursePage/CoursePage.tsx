@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { ProfileBar } from "@/components/ProfileBar/ProfileBar";
 
